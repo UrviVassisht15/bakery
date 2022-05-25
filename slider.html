@@ -1,0 +1,507 @@
+<html>
+<head>
+<style>
+body
+{
+background-image:url("bkg.jpg");
+background-repeat:no-repeat;
+background-size:100% 100%
+}
+
+.btns
+{
+	height:50px;
+	width:110px;
+	border-radius:20px;
+	border-style:hidden;
+	background-color:#FC5151;
+	color:white;
+	font-size:24px;
+	cursor:pointer;
+	margin-top:100px;
+	margin:20px;
+	
+}
+
+.heading
+{
+	font-size:22px;
+	font-family: "Papyrus", monospace, sans-serif;
+	color:#6E3006;
+}
+
+.display_btn
+{
+	height:25px;
+	width:100px;
+	border-radius:20px;
+	border-style:dotted;
+	background-color:#ECB18A;
+	color:#945227;
+	font-size:10px;
+	cursor:pointer;
+	margin-left:60px;
+	margin-top:200px;
+	display:none;
+	font-family: "Papyrus", monospace, sans-serif;
+}
+
+.sale
+{
+	height:25px;
+	width:100px;
+	border-style:none;
+	background-color:#817BAD;
+	color:white;
+	font-size:18px;
+	cursor:pointer;
+	font-family: "terminal", monospace, sans-serif;
+	
+}
+.price
+{
+	color:#9D5321;
+	font-size:16px;
+	font-family: "terminal", monospace, sans-serif;
+	margin-top:-40px;
+	margin-left:40px;
+}
+
+.marquee 
+{
+    height: 35px;
+    position: relative;
+    background-color:#FF8484;
+    border: 1px solid solid;
+	font-size:26px;
+	font-family: "Papyrus", monospace, sans-serif;
+}
+
+
+.dropdown_payment
+{
+	height:40px;
+	width:110px;
+	border-radius:20px;
+	border-style:hidden;
+	background-color:#D24738;
+	color:white;
+	font-size:13px;
+	cursor:pointer;	
+	margin-left:1070px;
+	margin-top:-430px;
+}
+
+
+.display_pics
+{
+	height:250px;
+	width:250px;
+	border:3px solid grey;
+	background-size:cover;
+	margin:6px;
+	margin-top:-80px;
+}
+
+.display1
+{
+	height:20px;
+	width:150px;
+	border-radius:20px;
+	border-style:hidden;
+	background-color:#FC5151;
+	color:white;
+	font-size:14px;
+	cursor:pointer;
+	margin-left:60px;
+	margin-top:200px;
+	display:none;
+
+}
+
+.price_1
+{
+	font-size:14px;
+	font-family: "Papyrus", monospace, sans-serif;
+	color:#6E3006;
+}
+
+.name1
+{
+	font-size:14px;
+	font-family: "Papyrus", monospace, sans-serif;
+	color:#6E3006;
+}
+
+.qty
+{
+	height:26px;
+	width:80px;
+	border-style:hidden;
+	border-radius:10px;
+	background-color:#E14E3D;
+	font-size:12px;
+	font-family: "Papyrus", monospace, sans-serif;
+	color:white;
+	text-align:center;
+}
+
+.display_flex
+{
+	display:flex;
+	padding:50px;
+	flex-wrap:wrap;
+}
+</style>
+
+<script>
+let pics=["cake1.jpeg","cake2.jpg","cake16.jpg","cake4.jpg","cake5.jpg","cske6.jpg","cake7.jpg","cake8.jpg","cake9.jpg","cake10.jpg","cake11.jpg","cake12.jpg","cake13.jpg","cake14.jpg","cake15.jpg"];
+let price=[1000,2000,15000,3000,6000,7488,6749,3393,5773,9000,1000,2000,15000,3000,6000];
+let AddCart=[];
+let red_green=["veg","non-veg","non-veg","veg","veg","veg","non-veg","non-veg","veg","veg","veg","non-veg","non-veg","veg","veg"];
+let c=0;
+
+const next_img=()=>
+{
+	if(c>=14)
+	{
+		c=0;
+	}
+	c=c+1;
+	document.getElementById("img1").src=pics[c];
+	document.getElementById("pr").innerHTML=price[c];
+	
+}
+
+const prev_img=()=>
+{
+	
+	if(c==0)
+	{
+		c=14;
+	}
+	c--;
+	document.getElementById("img1").src=pics[c];
+	document.getElementById("pr").innerHTML=price[c];
+}
+
+const visible_btn=(b)=>
+{
+	
+  var x = document.getElementById(b);
+
+    x.style.display = "block";
+ 
+}
+
+const di=(b)=>
+{
+ var x = document.getElementById(b);
+
+    x.style.display = "none";
+
+}
+
+const addCart=(name,pr,q)=>
+{
+
+let c=localStorage.length;
+let q1=document.getElementById(q).value;
+alert(q1);
+	window.localStorage.setItem(c,[name,pr,q1]);
+	
+	
+c=c+1;
+
+}
+
+</script>
+</head>
+<body>
+<center>
+<div>
+<div class="marquee">
+<marquee> LEVI's tea shop |____|   Use code:FirstUser to get 50%off</marquee>
+</div>
+<h1 class="heading">
+The LEVI's  Tea  Bistro
+</h1>
+<a href="order.html">
+<img src="cart.png" style="height:40px;width:30px;margin-left:1000px;margin-top:-40px;">
+<br>
+</a>
+<div style="display:flex;flex-wrap:wrap;padding:40px;margin-left:200px;">
+<button class="btns" onclick="prev_img()">
+<<
+</button>
+<img src="cake2.jpg" id="img1" style="height:300px;width:394px;margin-top:-40px;margin-left:-5px;border-style:inset;">
+
+<button class="btns" onclick="next_img()">
+>>
+</button>
+</div>
+
+</center>
+<div>
+
+</div>
+
+<div class="display_flex">
+<div>
+<br>
+<br>
+
+<div style="background-image:url(cake2.jpg);" class="display_pics" onmousemove="visible_btn('b1')" onmouseout="di('b1')">
+<button class="display_btn" id="b1" onclick="addCart('cake1',400,'t1')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t1"></span></p>
+
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake1</span></p>
+</div>
+
+<div>
+<br>
+<br>
+<div style="background-image:url(cake1.jpeg);" class="display_pics" onmousemove="visible_btn('b2')" onmouseout="di('b2')">
+<button class="sale"> 
+ON SALE
+</button>
+<button class="display_btn" id="b2" onclick="addCart('cake2',900,'t2')"> 
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input class="qty" type="number" style="width:30px;" id="t2"></span></p>
+<p class="name1">NAME<span class="pric_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake2</span></p>
+
+</div>
+
+<div>
+<br>
+<br>
+<div style="background-image:url(cake16.jpg);" class="display_pics" onmousemove="visible_btn('b3')" onmouseout="di('b3')">
+<button class="sale"> 
+ON SALE
+</button>
+<button class="display_btn" id="b3" onclick="addCart('cake3',1400,'t3')">
+ADD CAKE
+</button>
+
+
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t3"></span></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake3</span></p>
+</div>
+
+<div>
+<br>
+<br>
+<div style="background-image:url(cake4.jpg);" class="display_pics" onmousemove="visible_btn('b4')" onmouseout="di('b4')">
+<button class="display_btn" id="b4" onclick="addCart('cake1',400,'t4')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t4"></span></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake4</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cake5.jpg);" class="display_pics" onmousemove="visible_btn('b5')" onmouseout="di('b5')">
+<button class="sale"> 
+ON SALE
+</button>
+<button class="display_btn" id="b5" onclick="addCart('cake1',400,'t5')">
+ADD CAKE
+</button>
+
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t5"></span></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake5</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cske6.jpg);" class="display_pics" onmousemove="visible_btn('b6')" onmouseout="di('b6')">
+<button class="display_btn" id="b6" onclick="addCart('cake1',400,'t6')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t6"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake6</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cake7.jpg);" class="display_pics" onmousemove="visible_btn('b6')" onmouseout="di('b6')">
+
+<button class="display_btn" id="b7" onclick="addCart('cake1',400,'t7')">
+ADD CAKE
+</button>
+<button class="sale"> 
+ON SALE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t7"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake7</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cake8.jpg);" class="display_pics" onmousemove="visible_btn('b7')" onmouseout="di('b7')">
+<button class="display_btn" id="b8" onclick="addCart('cake1',400,'t8')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t8"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake8</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cake9.jpg);" class="display_pics" onmousemove="visible_btn('b9')" onmouseout="di('b9')">
+
+<button class="display_btn" id="b9" onclick="addCart('cake1',400,'t9')">
+ADD CAKE
+</button>
+<button class="sale"> 
+ON SALE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t9"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake9</span></p>
+</div>
+<div>
+<br>
+<br><br>
+<br>
+<br>
+<div style="background-image:url(cake10.jpg);" class="display_pics" onmousemove="visible_btn('b10')" onmouseout="di('b10')">
+
+<button class="display_btn" id="b10" onclick="addCart('cake1',400,'t10')">
+ADD CAKE
+</button>
+<button class="sale"> 
+ON SALE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t10"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake10</span></p>
+</div>
+<div>
+<br><br>
+<br>
+<br>
+<br>
+<div style="background-image:url(cake11.jpg);" class="display_pics" onmousemove="visible_btn('b11')" onmouseout="di('b11')">
+<button class="display_btn" id="b11" onclick="addCart('cake1',400,'t11')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number"class="qty" style="width:30px;" id="t11"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake11</span></p>
+</div>
+<div>
+<br>
+<br>
+<br><br>
+<br>
+<div style="background-image:url(cake12.jpg);" class="display_pics" onmousemove="visible_btn('b12')" onmouseout="di('b12')">
+<button class="display_btn" id="b12" onclick="addCart('cake1',400,'t12')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t12"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake12</span></p>
+</div>
+<div>
+<br>
+<br>
+<br><br>
+<br>
+<div style="background-image:url(cake13.jpg);" class="display_pics" onmousemove="visible_btn('b13')" onmouseout="di('b13')">
+<button class="display_btn" id="b13" onclick="addCart('cake1',400,'t13')">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t13"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake13</span></p>
+</div>
+<div>
+<br>
+<br>
+<br>
+<br><br>
+<div style="background-image:url(cake14.jpg);" class="display_pics" onmousemove="visible_btn('b14')" onmouseout="di('b14')">
+<button class="display_btn" id="b14">
+ADD CAKE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t14"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake14</span></p>
+</div>
+
+<div>
+<br>
+<br>
+<br><br>
+<br>
+<div style="background-image:url(cake15.jpg);" class="display_pics" onmousemove="visible_btn('b15')" onmouseout="di('b15')">
+
+<button class="display_btn" id="b15" onclick="addCart('cake1',400,'t15')">
+ADD CAKE
+</button>
+<button class="sale"> 
+ON SALE
+</button>
+
+</div>
+<p class="price_1">PRICE<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;Rs.400</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span><input type="number" class="qty" style="width:30px;" id="t15"></span></p></p>
+<p class="name1">NAME<span class="price_1"> &nbsp;&nbsp;&nbsp;&nbsp;cake15</span></p>
+</div>
+
+</div>
+
+
+<h1 style="font-family:French Script MT,monospacing,sans-serif;font-size:60px;margin-top:50px;margin-left:500px;">
+ABOUT US
+</h1>
+<p style="font-size:18px;">
+Our team of handpicked, highly trained, and experienced chefs, produce products of the highest quality, taste, and finish. All the recipes created are always under constant improvisation to keep up with the market trends and expectations of our customers. All the products are made under supervision with the finest of the ingredients without any additives/preservatives.
+We are constantly working on increasing our reach to deliver the most flavorsome and delicious cakes making your most cherished moments memorable. Not just cakes, we specialize in a variety of egg-less scrumptious desserts, cookies, breads, chocolates, and more. We are committed to providing quality products and personalized services at reasonable prices.
+ Have specialized offerings for your gifting needs, corporate and catering/dessert tables reach out to us
+We have something for everyone!
+</p>
+</div>
+</body>
+</html>
